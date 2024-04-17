@@ -101,7 +101,7 @@ def donustur():
 # ARABİRİM ;
 
 pencere = tk.Tk()
-tipler = [["ağırlık","ton","kg","gr","mg"],["uzunluk","km","m","cm","mm"],["hacim","hl","dal","l","dl","ml"],["zaman","saat","dakika","saniye"]]
+tipler = [["Ağırlık","ton","kg","gr","mg"],["Uzunluk","km","m","cm","mm"],["Hacim","hl","dal","l","dl","ml"],["Zaman","saat","dakika","saniye"]]
 tip = ""
 tip_indis = 0
 x,y = 0,0
