@@ -1,12 +1,11 @@
+from ttkbootstrap import Style
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from PIL import Image,ImageTk
-pencere = tk.Tk()
-tipler = [["ağırlık","ton","kg","gr","mg"],["uzunluk","km","m","cm","mm"],["hacim","hl","dal","l","dl","ml"],["zaman","saat","dakika","saniye"]]
-tip = ""
-tip_indis = 0
-x,y = 0,0
+
+# FONKSİYONLAR ;
+
 def birim1_arti():
     global birim1
     try:
@@ -98,27 +97,64 @@ def donustur():
             messagebox.showerror("Tip Hatası","Lütfen sayısal bir değer giriniz.")
     else:
         messagebox.showerror("Tip Hatası","{} birimi {} birimine dönüştürülebilir değildir.".format(birim1_tip.get(),birim2_tip.get()))
+
+# ARABİRİM ;
+
+pencere = tk.Tk()
+tipler = [["ağırlık","ton","kg","gr","mg"],["uzunluk","km","m","cm","mm"],["hacim","hl","dal","l","dl","ml"],["zaman","saat","dakika","saniye"]]
+tip = ""
+tip_indis = 0
+x,y = 0,0
+kategoriler = [tipler[0][0], tipler[1][0], tipler[2][0], tipler[3][0]]
+
 pencere.title("Birim Dönüştürücü")
-pencere.geometry("400x230")
+pencere.geometry("400x210")
 pencere.resizable(0,0)
+
+# STİL
+style = Style(theme='minty')
+pencere = style.master
+
 arti_resim = ImageTk.PhotoImage(Image.open("res/arti.png"))
 eksi_resim = ImageTk.PhotoImage(Image.open("res/eksi.png"))
 cevir_resim = ImageTk.PhotoImage(Image.open("res/cevir.png"))
 ikon = ImageTk.PhotoImage(Image.open("res/ikon.png"))
 pencere.wm_iconphoto(True,ikon)
-birim1_tip = ttk.Combobox()
-birim1_tip["values"] = str([x[1:] for x in tipler]).replace("[","").replace("]","").replace("'","").replace(",","")
-birim1_tip.place(x=20,y=20)
-birim1 = tk.Entry()
+
+birim1_etiket = tk.Label(text = "Değer :")
+birim1_etiket.place(x=20, y=20)
+
+birim1 = tk.Entry(width=22)
 birim1.insert(0,"0")
-birim1.place(x=220,y=30)
-birim1_btn = tk.Button(command=birim1_arti,image=arti_resim)
-birim1_btn.place(x=80,y=80)
-birim1_btn2 = tk.Button(command=birim1_eksi,image=eksi_resim)
-birim1_btn2.place(x=270,y=80)
-birim2_tip = ttk.Combobox()
+birim1.place(x=120,y=20)
+
+birim_kategori_etiket = tk.Label(text = "Kategori :")
+birim_kategori_etiket.place(x=20, y=70)
+
+birim_kategori = ttk.Combobox()
+birim_kategori["values"] = kategoriler         # str([x[1:] for x in tipler]).replace("[","").replace("]","").replace("'","").replace(",","")
+birim_kategori.place(x=120,y=65)
+
+birim1_tip_etiket = tk.Label(text = "Girdi Birimi :")
+birim1_tip_etiket.place(x=20, y=120)
+
+birim1_tip = ttk.Combobox(state='readonly')
+birim1_tip["values"] = str([x[1:] for x in tipler]).replace("[","").replace("]","").replace("'","").replace(",","")
+birim1_tip.place(x=120,y=115)
+
+birim2_tip_etiket = tk.Label(text = "Çıktı Birimi :")
+birim2_tip_etiket.place(x=20, y=170)
+
+birim2_tip = ttk.Combobox(state='readonly')
 birim2_tip["values"] = str([x[1:] for x in tipler]).replace("[","").replace("]","").replace("'","").replace(",","")
-birim2_tip.place(x=20,y=50)
+birim2_tip.place(x=120,y=165)
+
+birim1_btn = tk.Button(command=birim1_arti,image=arti_resim)
+birim1_btn.place(x=325,y=20)
+
+birim1_btn2 = tk.Button(command=birim1_eksi,image=eksi_resim)
+birim1_btn2.place(x=325,y=80)
+
 donustur_btn = tk.Button(command=donustur,image=cevir_resim)
-donustur_btn.place(x=170,y=150)
+donustur_btn.place(x=325,y=140)
 pencere.mainloop()
