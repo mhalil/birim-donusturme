@@ -1,5 +1,9 @@
-# Python ile birim dönüştürme programı
-Metrik sistem kullanarak ağırlık, uzunluk, hacim, zaman birimlerini birbirine dönüştürebiliyor.
+# Birim Dönüştürücü
+SI Birim Sisteminde **Ağırlık, Uzunluk, Hacim, Zaman** kategorilerinde birimler arası dönüşüm yapan python uygulaması.
+
 ![ss1](SS1.png)
 
 ![ss2](SS2.png)
+
+## Eklenecek Özellikler;
+* Dönüşüm yapıldığında çıktı değeri panoya kopyalanacak
