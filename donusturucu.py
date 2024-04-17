@@ -101,12 +101,11 @@ def donustur():
 # ARABİRİM ;
 
 pencere = tk.Tk()
-tipler = [["Ağırlık","ton","kg","gr","mg"],["Uzunluk","km","m","cm","mm"],["Hacim","hl","dal","l","dl","ml"],["Zaman","saat","dakika","saniye"]]
+tipler = [["ağırlık","ton","kg","gr","mg"],["uzunluk","km","m","cm","mm"],["hacim","hl","dal","l","dl","ml"],["zaman","saat","dakika","saniye"]]
 tip = ""
 tip_indis = 0
 x,y = 0,0
-kategoriler = [tipler[0][0], tipler[1][0], tipler[2][0], tipler[3][0]]
-
+kategoriler = [tipler[0][0].title(), tipler[1][0].title(), tipler[2][0].title(), tipler[3][0].title()]
 pencere.title("Birim Dönüştürücü")
 pencere.geometry("400x210")
 pencere.resizable(0,0)
@@ -132,7 +131,7 @@ birim_kategori_etiket = tk.Label(text = "Kategori :")
 birim_kategori_etiket.place(x=20, y=70)
 
 birim_kategori = ttk.Combobox()
-birim_kategori["values"] = kategoriler         # str([x[1:] for x in tipler]).replace("[","").replace("]","").replace("'","").replace(",","")
+birim_kategori["values"] = kategoriler
 birim_kategori.place(x=120,y=65)
 
 birim1_tip_etiket = tk.Label(text = "Girdi Birimi :")
