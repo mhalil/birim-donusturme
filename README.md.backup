@@ -22,6 +22,9 @@ SI Birim Sisteminde **Ağırlık, Uzunluk, Hacim, Zaman** kategorilerinde biriml
 
 ![ss8](SS/SS8_linux_theme.png)
 
+## Eklenecek Özellikler;
+* Dönüşüm yapıldığında çıktı değeri panoya kopyalanacak
+* Tema seçim özelliği eklenecek
 
 # Kodun Orjinal Adresi;
 [sametgzlgn/birim-donusturme](https://github.com/sametgzlgn/birim-donusturme)
